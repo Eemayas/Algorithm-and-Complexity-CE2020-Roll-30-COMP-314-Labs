@@ -12,7 +12,7 @@ def generate_random_array(size):
 
 def generate_graph():
     """Generate a graph comparing sorting algorithms."""
-    breakpoints = [i*100 for i in range(1, 21)]  # Adjusted for clarity
+    breakpoints = [i*100 for i in range(1, 21)]  
     random_numbers = generate_random_array(breakpoints[-1])
     
     random_numbers_list = [random_numbers[0:i] for i in breakpoints]
