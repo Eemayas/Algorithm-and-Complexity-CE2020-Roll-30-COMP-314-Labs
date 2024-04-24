@@ -1,13 +1,13 @@
 import random
 import time
-import matplotlib.pyplot as plt # type: ignore
+import matplotlib.pyplot as plt  # type: ignore
 from sorting import insertion_sort, selection_sort
 from copy import deepcopy
 
 
 def generate_random_array(size):
     """Generate a random array of given size."""
-    return [random.randint(-1000, 1000) for _ in range(size)]
+    return [random.randint(-10000, 10000) for _ in range(size)]
 
 
 def generate_graph():
@@ -47,7 +47,7 @@ def generate_graph():
         # Time taken for Insertion Sort (Best Case)
         start_time = time.time()
         insertion_sort(data_set)
-        insertion_sort_best_endtime = time.time() - start_time
+        insertion_sort_best_endtime = (time.time() - start_time)
         time_taken_insertion_sort_best_case.append(insertion_sort_best_endtime)
 
     for data_set in reverse_sorted_data:
@@ -83,7 +83,8 @@ def generate_graph():
         print(f"Time Interval After Each Interval by {case}:\n")
         for i in range(len(breakpoints)):
             # Adjust spacing for breakpoints and intervals
-            print(f"{breakpoints[i]:<{max_width_breakpoints+15}}\t{intervals[i]}")
+            print(
+                f"{breakpoints[i]:<{max_width_breakpoints+15}}\t{intervals[i]}")
         print("----------------------------------------------\n")
 
     # Calculate the maximum width required for each column
@@ -104,8 +105,7 @@ def generate_graph():
     # Print the data rows
     for i in range(len(breakpoints)):
         print(f"{breakpoints[i]:<{max_width_breakpoints+15}} {time_taken_insertion_sort[i]:<{max_width_insertion_sort+15}} {time_taken_insertion_sort_best_case[i]:<{max_width_best_case+15}} {time_taken_insertion_sort_worst_case[i]:<{max_width_worst_case+15}} {time_taken_selection_sort[i]:<{max_width_selection_sort+15}}")
-        
-        
+
  # Plotting the graph
     plt.plot(breakpoints, time_taken_insertion_sort, label='Insertion Sort')
     plt.plot(breakpoints, time_taken_insertion_sort_best_case,
