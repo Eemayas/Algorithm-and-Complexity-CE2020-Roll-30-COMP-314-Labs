@@ -94,7 +94,7 @@ def generate_graph():
     plt.title('Comparison of Merge Sort and Quick Sort')
     plt.legend()
     plt.grid(True)
-    plt.yscale('log')
+    # plt.yscale('log')
     plt.show()
 
 
