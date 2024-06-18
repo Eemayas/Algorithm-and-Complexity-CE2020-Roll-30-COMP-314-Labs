@@ -1,5 +1,5 @@
 import math
-
+from prettytable import PrettyTable
 # Define the knapsack problem
 
 
@@ -30,7 +30,7 @@ def knapsack_01_brute_force(weights, values, capacity):
             temp = x
             for j in range(n):
                 if temp % 2 != 0:
-                    current_binary_sequence.append
+                    # current_binary_sequence.append
                     current_weight_sequence.append(weights[j])
                 temp = math.floor(temp/2)
             sequences_values.append(value)
@@ -61,6 +61,16 @@ def knapsack_01_dynamic(weights, values, capacity):
                                [w - weights[i - 1]] + values[i - 1])
             else:
                 dp[i][w] = dp[i - 1][w]
+
+    # Print the DP table using PrettyTable
+    table = PrettyTable()
+    table.field_names = ["Capacity \\ Items"] + \
+        [f"Item {i}" for i in range(n + 1)]
+    for w in range(capacity + 1):
+        row = [f"Capacity {w}"] + [dp[i][w] for i in range(n + 1)]
+        table.add_row(row)
+
+    print(table)
 
     # Find the maximum value
     max_value = dp[n][capacity]
@@ -208,7 +218,7 @@ def knapsack_fractional_brute_force(weights, values, capacity):
 if __name__ == "__main__":
     weights = [1, 2, 3]
     values = [10, 15, 40]
-    capacity = 6
+    capacity = 2
     # weights = [3, 4, 9]
     # values = [5, 10, 100]
     # capacity = 8
@@ -222,7 +232,7 @@ if __name__ == "__main__":
     # values = [23, 45, 46, 9, 36]
     # capacity = 50
 
-    # Run the algorithms
+    # # Run the algorithms
     max_value = knapsack_01_brute_force(weights, values, capacity)
     print(
         f"\nThe maximum value that can be put in the knapsack (Brute Force) is {max_value}")
@@ -231,10 +241,10 @@ if __name__ == "__main__":
     print(
         f"\nThe maximum value that can be put in the knapsack (Dynamic) is {max_value}")
 
-    max_value = knapsack_fractional_greedy(weights, values, capacity)
-    print(
-        f"\nThe maximum value that can be put in the knapsack (Greedy) is {max_value}")
+    # max_value = knapsack_fractional_greedy(weights, values, capacity)
+    # print(
+    #     f"\nThe maximum value that can be put in the knapsack (Greedy) is {max_value}")
 
-    max_value = knapsack_fractional_brute_force(weights, values, capacity)
-    print(
-        f"\nThe maximum value that can be put in the knapsack (Fractional) is {max_value}")
+    # max_value = knapsack_fractional_brute_force(weights, values, capacity)
+    # print(
+    #     f"\nThe maximum value that can be put in the knapsack (Fractional) is {max_value}")
