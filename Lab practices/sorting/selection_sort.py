@@ -1,12 +1,12 @@
 def selection_sort(A):
     n = len(A)
-    for i in range(0, n):
+    for i in range(n-1):
         smallest = i
         for j in range(i+1, n):
-            if A[smallest] > A[j]:
+            if A[j] < A[smallest]:
                 smallest = j
         if smallest != i:
-            A[i], A[smallest] = A[smallest], A[i]
+            A[smallest], A[i] = A[i], A[smallest]
     return A
 
 

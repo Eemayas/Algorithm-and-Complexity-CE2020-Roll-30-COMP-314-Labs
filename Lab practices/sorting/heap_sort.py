@@ -10,16 +10,16 @@ def heapify(A, i, length):
         largest_index = i
     if right < length and A[largest_index] < A[right]:
         largest_index = right
-
     if largest_index != i:
         A[i], A[largest_index] = A[largest_index], A[i]
         heapify(A, largest_index, length)
     return A
 
+
 def build_max_heap(A):
     for i in range(len(A)//2, -1, -1):
         heapify(A, i, len(A))
-        i = i-1
+
 
 def heap_sort(A):
     build_max_heap(A)

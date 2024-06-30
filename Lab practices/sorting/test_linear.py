@@ -3,6 +3,7 @@ from counting_sort import counting_sort
 from radix_sort import radix_sort
 from bucket_sort import bucket_sort
 
+
 class TestCounting(unittest.TestCase):
     def testCountingSort1(self):
         A = [2, 5, 3, 0, 2, 3, 0, 3]
@@ -69,27 +70,30 @@ class TestCounting(unittest.TestCase):
     def testRadixSort4(self):
         A = radix_sort([987654, 123456, 234567, 345678, 456789])
         self.assertEqual(A, [123456, 234567, 345678, 456789, 987654])
-    
+
     def testBucketSort1(self):
         A = [0.100, 0.8, 0.9, .07, 0.6, 0.4, 0.6, 0.8, 0.4, 0.231, 0.884, 0.54]
         B = bucket_sort(A)
-        self.assertEqual(B,[0.07, 0.1, 0.231, 0.4, 0.4, 0.54, 0.6, 0.6, 0.8, 0.8, 0.884, 0.9])
-        
+        self.assertEqual(B, [0.07, 0.1, 0.231, 0.4, 0.4,
+                         0.54, 0.6, 0.6, 0.8, 0.8, 0.884, 0.9])
+
     def testBucketSort2(self):
         A = [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
         B = bucket_sort(A)
         self.assertEqual(B, [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-    
+
     def testBucketSort3(self):
         A = [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95]
         B = bucket_sort(A)
-        self.assertEqual(B, [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95])
-    
+        self.assertEqual(B, [0.15, 0.25, 0.35, 0.45,
+                         0.55, 0.65, 0.75, 0.85, 0.95])
+
     def testBucketSort4(self):
         A = [0.123, 0.456, 0.789, 0.321, 0.654, 0.987, 0.111, 0.999]
         B = bucket_sort(A)
-        self.assertEqual(B, [0.111, 0.123, 0.321, 0.456, 0.654, 0.789, 0.987, 0.999])
-    
+        self.assertEqual(B, [0.111, 0.123, 0.321, 0.456,
+                         0.654, 0.789, 0.987, 0.999])
+
     def testBucketSort5(self):
         A = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
         B = bucket_sort(A)

@@ -6,7 +6,7 @@ def activity_selection_recursion(s, f, k, n, selected):
         return []
     selected.append((s[k], f[k]))
     m = k+1
-    while m < n and f[k] > s[m]:
+    while m < n and s[m] < f[k]:
         m = m+1
     if m < n:
         activity_selection_recursion(s, f, m, n, selected)
@@ -16,13 +16,11 @@ def activity_selection_recursion(s, f, k, n, selected):
 def activity_selection_iterative(s, f, n):
     if n == 0:
         return []
-    i = 0
     selected = []
     selected.append((s[0], f[0]))
-    while i < n:
+    for i in range(n):
         if s[i] > selected[-1][1]:
             selected.append((s[i], f[i]))
-        i = i+1
     return selected
 
 

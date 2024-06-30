@@ -1,5 +1,6 @@
 import math
 
+
 def merge(A, p, q, r):
     n1 = q-p+1
     n2 = r-q
@@ -9,15 +10,16 @@ def merge(A, p, q, r):
         L[i] = A[p+i]
     for i in range(n2):
         R[i] = A[q+i+1]
-    L[n1] = R[n2] = math.inf
+    L[n1] = float("inf")
+    R[n2] = float("inf")
     i = j = 0
-    for k in range(p, r+1):
+    for k in range(p, r + 1):
         if L[i] < R[j]:
             A[k] = L[i]
-            i = i+1
+            i += 1
         else:
             A[k] = R[j]
-            j = j+1
+            j += 1
 
 
 def merge_sort(A, p, r):
