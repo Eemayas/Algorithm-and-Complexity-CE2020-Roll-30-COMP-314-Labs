@@ -22,7 +22,8 @@ def radix_sort(A):
         max_element = max_element//10
     exp = 1
     for d in range(count):
-        A = counting_sort_radix(A, exp*(pow(10, d)))
+        A.sort(key=lambda x: x//(10**d) % 10)
+        # A = counting_sort_radix(A, exp*(pow(10, d)))
 
     return A
 

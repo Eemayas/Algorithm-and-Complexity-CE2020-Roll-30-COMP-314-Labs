@@ -14,7 +14,6 @@ def matrix_multiplication_tabulation(p):
                     s[i-1][j-1] = k
     return m, s
 
-
 def matrix_multiplication_memo(p):
     n = len(p) - 1
     m = [[0 for _ in range(n)] for _ in range(n)]
@@ -35,7 +34,6 @@ def matrix_multiplication_memo(p):
         return m[i][j]
     lookup_chain(m, p, 0, n-1)
     return m, s
-
 
 def display_mutliplication(s, i, j):
     if (i == j):
